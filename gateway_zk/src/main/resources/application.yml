@@ -1,0 +1,23 @@
+server:
+  port: 8004
+
+logging:
+  level:
+    org.apache.zookeeper.ClientCnxn: WARN
+
+
+spring:
+  application:
+    name: gateway
+  cloud:
+    zookeeper:
+      connect-string: 192.168.99.100:2181
+
+zuul:
+  routes:
+    licenses: 
+      path: /licenses/**
+    products: 
+      path: /products/**
+    GreetingConsumer: 
+      path: /GreetingConsumer/**
